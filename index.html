@@ -353,6 +353,19 @@ function styleTM(feature) {
   }
 }
 
+function styleLab(feature) {
+  return{
+    opacity: 0.2,
+    color: 'rgba(34,24,24,1.0)',
+    //dashArray: '10,5', (Línea punteada, mayor valor menos segmentos)
+    lineCap: 'butt',  
+    lineJoin: 'round',  //(Uniones, redondeadas o rectas)
+    weight: 0,
+    fill: false,
+    interactive: false,
+  }
+}
+
 //Función de estilo para Loc
 function styleLoc(feature) {
   return{
@@ -385,15 +398,23 @@ var locImpe = new L.geoJson(locImperial, {
   onEachFeature: onEachFeatureLoc,
 }).addTo(map);
 
+var labTM = new L.geoJson(com2022, {
+  style: styleLab       // onEach (hover, popup) 
+}).addTo(map);
+
+var labImpe = new L.geoJson(locImperial, {
+  style: styleLab
+}).addTo(map);
+
 // ETIQUETADO
 
 map.on('zoomend', function() {
         var zoom = map.getZoom();
-        if( map.hasLayer(locImpe) ) {
-            locImpe.eachLayer( function (layer){
+        if( map.hasLayer(labImpe) ) {
+            labImpe.eachLayer( function (layer){
                 //console.log(layer);
                 if ( zoom >= 13 && (!layer.getTooltip()) ) {
-                    tooltiptext = '<b>'+layer.feature.properties.NOMBRE+'</b>';
+                    tooltiptext = '<b>'+'<div style="color: rgb(100, 102, 0)">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';
                     layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: false , direction: 'center'});
                 } else if ( zoom < 14 && (layer.getTooltip()) ) {
                     //console.log('remove tooltip');
@@ -405,11 +426,11 @@ map.on('zoomend', function() {
 
 map.on('zoomend', function() {
         var zoom = map.getZoom();
-        if( map.hasLayer(tmImpe) ) {
-            tmImpe.eachLayer( function (layer){
+        if( map.hasLayer(labTM) ) {
+            labTM.eachLayer( function (layer){
                 //console.log(layer);
                 if ( zoom >= 13 && (!layer.getTooltip()) ) {
-                    tooltiptext = '<b>'+layer.feature.properties.NOMBRE+'</b>';
+                    tooltiptext = '<b>'+'<div style="color: rgb(99, 4, 4)">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';
                     layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: false , direction: 'center'});
                 } else if ( zoom < 14 && (layer.getTooltip()) ) {
                     //console.log('remove tooltip');
@@ -432,7 +453,9 @@ var baselayers = {
 var locTM = {
   "CAPAS DE INFORMACIÓN": {
     '<img style="margin-bottom:4px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/tmImp.png" /> Comunidades': tmImpe,
-    '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/locRural.png" /> Localidades rurales': locImpe
+    '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/locRural.png" /> Localidades rurales': locImpe,
+    "Etiquetar comunidades": labTM,
+    "Etiquetar localidades": labImpe
  }
 };
 
@@ -504,7 +527,7 @@ scale.addTo(map);
 <style>
   /*
   .fill{
-    background-color: #06f8f8, rgb(rgb(34, 24, 24));
+    background-color: #06f8f8, rgb(84, 90, 5)); 
   }
   */
 </style>
