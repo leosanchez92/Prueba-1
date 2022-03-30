@@ -4,13 +4,13 @@
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  z-index: 2000; }
+  z-index: 22000; }
   .leaflet-sidebar.collapsed {
     width: 40px; }
   @media (min-width: 768px) {
     .leaflet-sidebar {
       top: 10px;
-      bottom: 10px;
+      bottom: 50px;
       transition: width 500ms; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .leaflet-sidebar {
@@ -40,7 +40,7 @@
 .leaflet-sidebar-tabs {
   top: 0;
   bottom: 0;
-  height: 100%;
+  height: 800%;
   background-color: #fff; }
   .leaflet-sidebar-left .leaflet-sidebar-tabs {
     left: 0; }
