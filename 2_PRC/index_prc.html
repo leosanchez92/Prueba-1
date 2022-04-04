@@ -144,7 +144,7 @@ th{
           </li><li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Información territorial</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown05">
-              <li><a class="dropdown-item" href="C:\Users\nelso\Desktop\Prueba\index.html"> Comunidades y localidades</a></li>
+              <li><a class="dropdown-item" href="Prueba\index.html"> Comunidades y localidades</a></li>
               <li><a class="dropdown-item" href="#"> Áreas verdes</a></li>
               <li><a class="dropdown-item" href="#"> Sedes</a></li>
             </ul>
@@ -336,16 +336,20 @@ th{
         layer.setStyle({
           weight: 2,
             dashArray: '',
-            fillOpacity: 0.7
+            fillOpacity: 0.4
       });
     }
     
     function highlightFeature2(e) {
       var layer = e.target;
         layer.setStyle({
-          weight: 4,
+          weight: 3,
             dashArray: '',
-            fillOpacity: 0.8
+            fillOpacity: 0.1,
+            fill: true,
+        
+        fillColor: '#4a7eec',
+          
       });
     }
 
@@ -365,7 +369,7 @@ th{
       });
 
       var tooltiptext = '<b>'+'<div style="font-size:14px">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';   //ETIQUETADO PERMANENTE
-      layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'});
+      layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'}); // INTERACCIÓN SOLO CON ETIQUETA
     
       var popupContent =  '<table class="">\
                           <tr>\
@@ -380,7 +384,7 @@ th{
                           '
                           ;
       layer.bindPopup(popupContent,{
-        maxHeight: 400,
+        maxHeight: 500,
       });
     }
     
@@ -477,7 +481,7 @@ th{
         weight: 1,
         fill: true,
         fillOpacity: 0.15,
-        fillColor: getColor(feature.properties.UV),
+        fillColor: getColor(feature.properties.UV),   // en get color se configura una paleta para c/entidad
         interactive: true,
       }
     }
