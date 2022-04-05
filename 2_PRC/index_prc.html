@@ -52,7 +52,7 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <!---CAPAS-GEOJSON--->
 <script type="text/javascript" src="data/jjvv_impe.js"></script>
 <script type="text/javascript" src="data/prc_imp.js"></script>
-<script type="text/javascript" src="data/prc_label.js"></script>
+
 
 <!--
 <script type="text/javascript" src="data/loc2022.js"></script>
@@ -371,8 +371,8 @@ th{
       var tooltiptext = '<b>'+'<div style="font-size:14px">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';   //ETIQUETADO PERMANENTE
       layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'}); // INTERACCIÓN SOLO CON ETIQUETA
     
-      var popupContent =  '<table class="">\
-                          <tr>\
+      var popupContent =  '<table class="table align-middle">\
+                          <tr class="">\
                             <th scope="row">Zona:</th>\
                             <td>' + '&nbsp' + (feature.properties.NOMBRE) + '</td>\
                           </tr>\
@@ -384,7 +384,7 @@ th{
                           '
                           ;
       layer.bindPopup(popupContent,{
-        maxHeight: 500,
+        maxHeight: 600,
       });
     }
     
