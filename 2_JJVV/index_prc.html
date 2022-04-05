@@ -52,6 +52,7 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <!---CAPAS-GEOJSON--->
 <script type="text/javascript" src="data/jjvv_impe.js"></script>
 <script type="text/javascript" src="data/prc_imp.js"></script>
+<script type="text/javascript" src="data/limite_prc.js"></script>
 
 
 <!--
@@ -117,7 +118,7 @@ th{
 <header>
   <nav class="navbar navbar-expand-xl navbar-light fixed-top lex-sm-nowrap flex-wrap py-1" aria-label="Fifth navbar example">
     <div class="container-fluid col-12 col-md-12 col-lg-10 col-xl-10">
-      <a class="navbar-brand" href="#"><b>PRC & JUNTAS DE VECINOS</b></a>
+      <a class="navbar-brand" href="#"><b>JUNTAS DE VECINOS</b></a>
       <div style="padding-left: 4px; padding-right: 8px; justify-content: center;">
         <img id="logo" src="img/logo_muni2.png" height="50px" width="50px" style="margin-left: 0px; margin-right: 0px;">
     </div>
@@ -293,8 +294,6 @@ th{
     zoomInTitle: 'Acercar',
     zoomOutTitle: 'Alejar'
     }).addTo(map);
-    ;
-    
     L.Control.zoomHome();
     
     // UBICACIÓN
@@ -304,31 +303,13 @@ th{
     iconLoading: 'fa fa-spinner fa-spin fa-lg',
     flyTo: true,
     locateOptions: {
-      enableHighAccuracy: true
+    enableHighAccuracy: true
     },
     strings: {
     title: "Muestra tu ubicación actual",
     popup: "La precisión actual es de aprox. {distance} {unit} alrededor de este punto.",
-    metersUnit: "metros",
-        }
+    metersUnit: "metros",}
     }).addTo(map);
-    
-    /*INFO RECUADRO
-    
-    var info = L.control();
-    
-    info.onAdd = function (map) {
-      this._div = L.DomUtil.create('div', 'info');
-      this.update();
-      return this._div;
-    };
-    
-    info.update = function (props) {
-      this._div.innerHTML = '<h4>Localidad/comunidad</h4>' +  (props ?
-        '<b>' + props.COMUNIDAD + '</b><br/>' : 'Seleccione para ver información');
-    };
-    info.addTo(map);
-    */
     
     // 4 PROPIEDADES HOVER (HIGHLIGHT FEATURE)
     function highlightFeature(e) {
@@ -339,54 +320,9 @@ th{
             fillOpacity: 0.4
       });
     }
-    
-    function highlightFeature2(e) {
-      var layer = e.target;
-        layer.setStyle({
-          weight: 3,
-            dashArray: '',
-            fillOpacity: 0.1,
-            fill: true,
-        
-        fillColor: '#4a7eec',
-          
-      });
-    }
-
-    function resetHighlightPRC(e) {
-      prcImpe.resetStyle(e.target);
-    }
-    
+  
     function resetHighlightJV(e) {
       jvImpe.resetStyle(e.target);
-    }
-    
-    // onEachFeature PRC
-    function onEachFeaturePRC(feature, layer) {    
-      layer.on({
-        mouseover: highlightFeature2,
-        mouseout: resetHighlightPRC,
-      });
-
-      var tooltiptext = '<b>'+'<div style="font-size:14px">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';   //ETIQUETADO PERMANENTE
-      layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'}); // INTERACCIÓN SOLO CON ETIQUETA
-    
-      var popupContent =  '<table class="table table-sm table-striped">\
-                          <tr class="">\
-                            <th scope="row">Zona: &nbsp</th>\
-                            <td>' +  (feature.properties.NOMBRE) + '</td>\
-                          </tr>\
-                          <tr>\
-                            <th scope="" class="align-top">Descripción:</th>\
-                            <td>' +  (feature.properties.Descripc) + '</td>\
-                          </tr>\
-                          </table>\
-                          '
-                          ;
-      layer.bindPopup(popupContent,{
-        maxHeight: 200,
-        maxWidth: 350
-      });
     }
     
     // onEachFeature Loc
@@ -399,11 +335,11 @@ th{
       var popupContent =  '<table class="">\
                           <tr>\
                             <th "scope="row">JJVV:</th>\
-                            <td>' + '&nbsp' + (feature.properties.NOMBRE) + '</td>\
+                            <td>' + (feature.properties.NOMBRE) + '</td>\
                           </tr>\
                           <tr>\
                             <th "scope="row">UV Nº:</th>\
-                            <td>' + '&nbsp' + (feature.properties.UV) + '</td>\
+                            <td>'  + (feature.properties.UV) + '</td>\
                           </tr>\
                           </table>\
                           '
@@ -412,7 +348,6 @@ th{
         maxHeight: 400,
       });
     }
-    
     
     //3 ESTILOS
     //Función de estilo para PRC
@@ -471,15 +406,14 @@ th{
                       '#FFEDA0';
 }
 
-
     function styleJV(feature) {
       return{
         opacity: 1,
         color: 'rgba(255,24,24,1.0)',
-        dashArray: '10,5', //(Línea punteada, mayor valor menos segmentos)
-        lineCap: 'butt',  
+        dashArray: '2', //(Línea punteada, mayor valor menos segmentos)
+        lineCap: 'square',  
         lineJoin: 'round',  //(Uniones, redondeadas o rectas)
-        weight: 1,
+        weight: 0.5,
         fill: true,
         fillOpacity: 0.15,
         fillColor: getColor(feature.properties.UV),   // en get color se configura una paleta para c/entidad
@@ -524,56 +458,31 @@ th{
       onEachFeature: onEachFeatureJV,
     }).addTo(map);
     
-    var prcImpe = new L.geoJson(prcImperial, {
-      style: stylePRC,
-      onEachFeature: onEachFeaturePRC,       // onEach (hover, popup) 
-    }).addTo(map);
-    
     var labJV = new L.geoJson(jvImperial, {
       style: styleLab       
     }).addTo(map);
-    
-    /*const labelPRC = new L.geoJson(labPRC, { //CAPA DE PUNTOS PARA SIMBOLOGIA PRC
-      style: styleLab,
-      onEachFeature: onEachFeaturePRC
-    }).addTo(map);*/
+  
+    var limPRC = new L.geoJson(limitePRC, {
+      style: stylePRC
+    }).addTo(map);
     
     // ETIQUETADO
-    
     /*ETIQUETAS JJVV*/
     map.on('zoomend', function() {
             var zoom = map.getZoom();
             if( map.hasLayer(jvImpe) ) {
                 jvImpe.eachLayer( function (layer){
                     //console.log(layer);
-                    if ( zoom >= 16 && (!layer.getTooltip()) ) {
+                    if ( zoom >= 15 && (!layer.getTooltip()) ) {
                         tooltiptext = '<b>'+'<div style="color:darkblue">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';
                         layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'});
-                    } else if ( zoom < 16 && (layer.getTooltip()) ) {
+                    } else if ( zoom < 15 && (layer.getTooltip()) ) {
                         //console.log('remove tooltip');
                         layer.unbindTooltip();
                     }
                 });
             }
         });
-    
-    /*ETIQUETAS PRC CON CONDICION DE ZOOM (OFF)
-    map.on('zoomend', function() {
-            var zoom = map.getZoom();
-            if( map.hasLayer(prcImpe) ) {
-                prcImpe.eachLayer( function (layer){
-                    //console.log(layer);
-                    if ( zoom >= 13 && (!layer.getTooltip()) ) {
-                        tooltiptext = '<b>'+'<div style="font-size:16px">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';
-                        layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'});
-                    } else if ( zoom < 14 && (layer.getTooltip()) ) {
-                        //console.log('remove tooltip');
-                        layer.unbindTooltip();
-                    }
-                });
-            }
-        });
-      */
       
     // CONTROL DE CAPAS
     
@@ -586,7 +495,7 @@ th{
     
     var locTM = {
       "CAPAS DE INFORMACIÓN": {
-        '<img style="margin-bottom:4px; margin-right:4px; box-shadow:2px 2px 2px gray;" src="legend/prcImpe.png" /> Zonificación PRC': prcImpe,
+        '<img style="margin-bottom:4px; margin-right:4px; box-shadow:2px 2px 2px gray;" src="legend/prcImpe.png" /> Límite PRC': limPRC,
         '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/jvImpe.png" /> Juntas de vecinos': jvImpe,
         /*'<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar comunidades': labTM,
         '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe*/
@@ -594,7 +503,6 @@ th{
     };
     
     var layerControl = new L.control.groupedLayers(baselayers, locTM, {'collapsed': true}).addTo(map);
-    
     
     /*
     var sidebar = L.control.sidebar({
@@ -615,7 +523,6 @@ th{
     
     // BUSQUEDA
     var searchLayers = L.layerGroup([
-      prcImpe,
        jvImpe
     ]);
     
@@ -629,7 +536,7 @@ th{
                 return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
             },
         zoom: 17,
-        textPlaceholder: 'Buscar zonificación/JJVV',
+        textPlaceholder: 'Buscar junta de vecinos',
         textCancel: 'Cancelar',
         textErr: 'No encontrado',
         marker: {
@@ -665,7 +572,6 @@ th{
     if (screen.width >= 500) {
     measureControl.addTo(map);
     };
-      
     
     var scale = L.control.scale({
       imperial: false,
