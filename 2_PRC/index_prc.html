@@ -371,20 +371,21 @@ th{
       var tooltiptext = '<b>'+'<div style="font-size:14px">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';   //ETIQUETADO PERMANENTE
       layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'}); // INTERACCIÓN SOLO CON ETIQUETA
     
-      var popupContent =  '<table class="table align-middle">\
+      var popupContent =  '<table class="table table-sm table-striped">\
                           <tr class="">\
-                            <th scope="row">Zona:</th>\
-                            <td>' + '&nbsp' + (feature.properties.NOMBRE) + '</td>\
+                            <th scope="row">Zona: &nbsp</th>\
+                            <td>' +  (feature.properties.NOMBRE) + '</td>\
                           </tr>\
                           <tr>\
-                            <th scope="row">Descripción:</th>\
-                            <td>' + '&nbsp' + (feature.properties.Descripc) + '</td>\
+                            <th scope="" class="align-top">Descripción:</th>\
+                            <td>' +  (feature.properties.Descripc) + '</td>\
                           </tr>\
                           </table>\
                           '
                           ;
       layer.bindPopup(popupContent,{
-        maxHeight: 600,
+        maxHeight: 200,
+        maxWidth: 350
       });
     }
     
