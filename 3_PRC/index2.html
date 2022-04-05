@@ -335,12 +335,10 @@ th{
     function highlightFeature(e) {
       var layer = e.target;
         layer.setStyle({
-          weight: 3,
+          weight: 2.3,
             dashArray: '',
-            fillOpacity: 0.1,
-            fill: true,
-        
-        fillColor: '#4a7eec',
+            fillOpacity: 0.2,
+            
       });
     }
 
@@ -400,17 +398,31 @@ th{
     
     //3 ESTILOS
     //Función de estilo para PRC
+
+    function getColor(d) {
+    return d == "ZE-1" ? '#29d74f' :
+           d == "ZE-2"  ? '#89ce5e' :
+           d == "ZE-3"  ? '#a1f557' :
+           d == "ZR-1"  ? '#99bbff' :
+           d == "ZR-2"  ? '#4da0d8' :
+           d == "ZU-1"  ? '#e8b336' :
+           d == "ZU-2"  ? '#fadc47' :
+           d == "ZU-3"  ? '#fff389' :
+           d == "ZU-4"  ? '#ffb681' :
+                          '#db3c7c';
+    }
+
     function stylePRC(feature) {
       return{
         opacity: 0.8,
-        color: 'rgb(176, 58, 46)',
+        color: 'rgb(0, 0, 0)',
         //dashArray: '10,5', (Línea punteada, mayor valor menos segmentos)
         lineCap: 'butt',  
         lineJoin: 'round',  //(Uniones, redondeadas o rectas)
         weight: 1.2,
         fill: true,
-        fillOpacity: 0.1,
-        fillColor: 'rgba(229,182,54,0.0)',
+        fillOpacity: 0.3,
+        fillColor: getColor(feature.properties.NOMBRE),
         interactive: true,
       }
     }
