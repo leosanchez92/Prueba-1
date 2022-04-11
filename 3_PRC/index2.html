@@ -100,13 +100,12 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 }
 
 td {
-  vertical-align: middle;
-  text-align: justify;
+  text-align: left;
 }
 
 th{
   vertical-align: middle;
-  text-align: center;
+  text-align: left;
 }
 
 </style>
@@ -146,6 +145,7 @@ th{
             <ul class="dropdown-menu" aria-labelledby="dropdown05">
               <li><a class="dropdown-item" href="../index.html"> Comunidades y localidades</a></li>
               <li><a class="dropdown-item" href="../2_JJVV/index3.html"> Juntas de vecinos</a></li>
+              <li><a class="dropdown-item" href="../4_AREAS_VERDES/index4.html"> Áreas verdes</a></li>
             </ul>
           
         </ul>
@@ -355,13 +355,15 @@ th{
       var tooltiptext = '<b>'+'<div style="font-size:14px">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';   //ETIQUETADO PERMANENTE
       layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'center'}); // INTERACCIÓN SOLO CON ETIQUETA
     */
-      var popupContent =  '<table class="table table-sm table-striped">\
+      var popupContent =  '<table class="table table-responsive table-sm table-borderless">\
                           <tr class="">\
-                            <th scope="row">Zona: &nbsp</th>\
+                            <th scope="row">Zona</th>\
+                            <td>' +  ":" + '</td>\
                             <td>' +  (feature.properties.NOMBRE) + '</td>\
                           </tr>\
                           <tr>\
-                            <th scope="" class="align-top">Descripción:</th>\
+                            <th scope="" class="align-top">Descripción</th>\
+                            <td>' +  ":" + '</td>\
                             <td>' +  (feature.properties.Descripc) + '</td>\
                           </tr>\
                           </table>\
@@ -377,13 +379,15 @@ th{
       var tooltiptext = '<b>'+'<div style="font-size:14px">'+layer.feature.properties.Zona+'</div>'+'</b>';   //ETIQUETADO PERMANENTE
       layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: false , direction: 'center'}); // INTERACCIÓN SOLO CON ETIQUETA
     
-      var popupContent =  '<table class="table table-sm table-striped">\
+      var popupContent =  '<table class="table table-responsive table-sm table-borderless">\
                           <tr class="">\
-                            <th scope="row">Zona: &nbsp</th>\
+                            <th scope="row">Zona</th>\
+                            <td>' +  ":" + '</td>\
                             <td>' +  (feature.properties.Zona) + '</td>\
                           </tr>\
                           <tr>\
-                            <th scope="" class="align-top">Descripción:</th>\
+                            <th scope="" class="align-top">Descripción</th>\
+                            <td>' +  ":" + '</td>\
                             <td>' +  (feature.properties.Descripc) + '</td>\
                           </tr>\
                           </table>\

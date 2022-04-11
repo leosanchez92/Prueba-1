@@ -22,7 +22,6 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <link rel="stylesheet" href="assets/css/L.Control.Locate.scss" />
 <link rel="stylesheet" href="assets/css/leaflet-search.css" />
 <link rel="stylesheet" href="assets/css/leaflet-measure.css"/>
-
 <link rel="stylesheet" href="assets/css/index1.css" />
 <link rel="stylesheet" href="assets/css/leaflet-sidebar.css" />
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -38,10 +37,8 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <script src="assets/js/leaflet.groupedlayercontrol.min.js"></script>
 <!-- 
 <script src="assets/js/leaflet-hash.js"></script>
-<script src="assets/js/leaflet.rotatedMarker.js"></script>
-<script src="assets/js/wNumb.js"></script>
-<script src="assets/js/labelgun.min.js"></script>
--->
+<script src="assets/js/wNumb.js"></script>-->
+
 <!--FAVICON-->
 <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
@@ -49,16 +46,10 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+
 <!---CAPAS-GEOJSON--->
-<script type="text/javascript" src="data/jjvv_impe.js"></script>
-<script type="text/javascript" src="data/prc_imp.js"></script>
+<script type="text/javascript" src="data/averdes_imp.js"></script>
 <script type="text/javascript" src="data/limite_prc.js"></script>
-
-
-<!--
-<script type="text/javascript" src="data/loc2022.js"></script>
-<script type="text/javascript" src="data/puntos_loc_.js"></script>
-<!- <link rel="stylesheet" href="assets/css/leaflet.groupedlayercontrol.min.css" /> -->
 
 <style>
 /*TÍTULO RESPONSIVE*/
@@ -101,6 +92,7 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 }
 
 td {
+  vertical-align: middle;
   text-align: left;
 }
 
@@ -117,7 +109,7 @@ th{
 <header>
   <nav class="navbar navbar-expand-xl navbar-light fixed-top lex-sm-nowrap flex-wrap py-1" aria-label="Fifth navbar example">
     <div class="container-fluid col-12 col-md-12 col-lg-10 col-xl-10">
-      <a class="navbar-brand" href="#"><b>JUNTAS DE VECINOS</b></a>
+      <a class="navbar-brand" href="#"><b>ÁREAS VERDES</b></a>
       <div style="padding-left: 4px; padding-right: 8px; justify-content: center;">
         <img id="logo" src="img/logo_muni2.png" height="50px" width="50px" style="margin-left: 0px; margin-right: 0px;">
     </div>
@@ -145,7 +137,7 @@ th{
             <ul class="dropdown-menu" aria-labelledby="dropdown05">
               <li><a class="dropdown-item" href="../index.html"> Comunidades y localidades</a></li>
               <li><a class="dropdown-item" href="../3_PRC/index2.html"> Plan regulador comunal</a></li>
-              <li><a class="dropdown-item" href="../4_AREAS_VERDES/index4.html"> Áreas verdes</a></li>
+              <li><a class="dropdown-item" href="../2_JJVV/index3.html"> Juntas de vecinos</a></li>
             </ul>
           
         </ul>
@@ -243,11 +235,12 @@ th{
         function OpenBootstrapPopup() {
             $("#aboutModal1").modal('show');
         }
-      */  
+      */ 
+
     // MAPA BASE
-    var map = L.map('map', {zoomControl: false, minZoom: 10, maxZoom: 17, zoomSnap: 0.5}).setView([-38.7421229, -72.9458827], 14.5);
+  var map = L.map('map', {zoomControl: false, minZoom: 10, maxZoom: 17, zoomSnap: 0.5}).setView([-38.7421229, -72.9458827], 14.5);
     
-    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         opacity: 1.0,
         minZoom: 10,
@@ -257,7 +250,7 @@ th{
         zIndex: 400,
     });
     
-    var ESRIsat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  var ESRIsat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: '©<a href="http://www.esri.com/"> Esri</a>',
         opacity: 1.0,
         minZoom: 10,
@@ -267,7 +260,7 @@ th{
         zIndex: 399,
     });
     
-    var cartoPos = L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+  var cartoPos = L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
         attribution: '©Map tiles by CartoDB, under CC BY 3.0 ',
         opacity: 1.0,
         minZoom: 10,
@@ -277,7 +270,7 @@ th{
         zIndex: 401,
     }).addTo(map);
     
-    var openTopo = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
+  var openTopo = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
         attribution: 'TopOSM was created by User: Ahlzen, with contributions from several others, including Ian Dees, Nick Thompson and Phil Gold.',
         opacity: 1.0,
         minZoom: 10,
@@ -287,15 +280,15 @@ th{
         zIndex: 397,
     });
     
-    // ZOOM CONTROL
-    var zoom = L.control.zoom({
+  // ZOOM CONTROL
+  var zoom = L.control.zoom({
     zoomInTitle: 'Acercar',
     zoomOutTitle: 'Alejar'
     }).addTo(map);
     L.Control.zoomHome();
     
-    // UBICACIÓN
-    var cLocate = L.control.locate({
+  // UBICACIÓN
+  var cLocate = L.control.locate({
     position: 'topleft',
     icon: 'fa fa-location-arrow fa-2x',
     iconLoading: 'fa fa-spinner fa-spin fa-lg',
@@ -307,39 +300,39 @@ th{
     title: "Muestra tu ubicación actual",
     popup: "La precisión actual es de aprox. {distance} {unit} alrededor de este punto.",
     metersUnit: "metros",}
-    }).addTo(map);
+  }).addTo(map);
     
     // 4 PROPIEDADES HOVER (HIGHLIGHT FEATURE)
-    function highlightFeature(e) {
-      var layer = e.target;
-        layer.setStyle({
-          weight: 2,
-            dashArray: '',
-            fillOpacity: 0.4
-      });
-    }
+  function highlightFeature(e) {
+    var layer = e.target;
+      layer.setStyle({
+        weight: 2,
+        dashArray: '',
+        fillOpacity: 0.4
+    });
+  }
   
-    function resetHighlightJV(e) {
-      jvImpe.resetStyle(e.target);
-    }
+  function resetHighlightAV(e) {
+      areavImpe.resetStyle(e.target);
+  }
     
     // onEachFeature Loc
-    function onEachFeatureJV(feature, layer) {    
+  function onEachFeatureAV(feature, layer) {    
       layer.on({
         mouseover: highlightFeature,
-        mouseout: resetHighlightJV,
+        mouseout: resetHighlightAV,
       });
     
-      var popupContent =  '<table class="table table-responsive table-sm table-borderless">\
+    var popupContent =  '<table class="table table-sm table-borderless">\
                           <tr>\
-                            <th "scope="row">JJVV</th>\
+                            <th scope="row">Nombre</th>\
                             <td>' + ":" + '</td>\
-                            <td>' + (feature.properties.NOMBRE) + '</td>\
+                            <td>' + (feature.properties.Nombre) + '</td>\
                           </tr>\
                           <tr>\
-                            <th "scope="row">UV Nº</th>\
-                            <td>'  + ":" + '</td>\
-                            <td>'  + (feature.properties.UV) + '</td>\
+                            <th scope="row">Tipo</th>\
+                            <td>' + ":" + '</td>\
+                            <td>'  + (feature.properties.Tipo) + '</td>\
                           </tr>\
                           </table>\
                           '
@@ -351,72 +344,19 @@ th{
     
     //3 ESTILOS
     //Función de estilo para PRC
-    function stylePRC(feature) {
-      return{
-        opacity: 0.8,
-        color: 'rgba(0,0,0, 1.0)',
-        //dashArray: '10,5', (Línea punteada, mayor valor menos segmentos)
-        lineCap: 'butt',  
-        lineJoin: 'round',  //(Uniones, redondeadas o rectas)
-        weight: 1.2,
-        fill: false,
-        fillOpacity: 0.8,
-        fillColor: 'rgba(229,182,54,0.0)',
-        interactive: false,
-      }
-    }
+ 
     
-    //Función de estilo para JV
-    function getColor(d) {
-    return d == 01 ? '#ea345f' :
-           d == 02  ? '#db3c7c' :
-           d == 03  ? '#d7e822' :
-           d == 04 ? '#d4525f':
-           d == 05  ? '#dbce17' :
-           d == 06  ? '#54e5c3' :
-           d == 07 ? '#ead079':
-           d == 10 ? '#7378d6':
-           d == 11  ? '#ce71b4' :
-           d == 15  ? '#55ea96' :
-           d == 17  ? '#8f40ee' :
-           d == 18  ? '#4cea76' :
-           d == 19 ? '#e9751b':
-           d == 20  ? '#acdf21' :
-           d == 21  ? '#68e0f0' :
-           d == 22 ? '#65e85c':
-           d == 23  ? '#1524df' :
-           d == 24  ? '#ee916f' :
-           d == 25 ? '#cc7cc3':
-           d == 26  ? '#5924df' :
-           d == 27  ? '#9de143' :
-           d == 28 ? '#c23fc9':
-           d == 29  ? '#5875de' :
-           d == 30  ? '#34a7d4' :
-           d == 31 ? '#1592db':
-           d == 32 ? '#71cec9':
-           d == 33 ? '#e17f74':
-           d == 34 ? '#117cd4':
-           d == 35 ? '#aaef7c':
-           d == "A" ? '#da2e8d':
-           d == "B" ? '#76cf5b':
-           d == "C" ? '#b067dd':
-           d == "D" ? '#e19829':
-           d == "E" ? '#c839ef':
-           d == "F" ? '#5588da':
-                      '#FFEDA0';
-}
-
-    function styleJV(feature) {
+    //Función de estilo para AV
+    function styleAV(feature) {
       return{
         opacity: 1,
-        color: 'rgba(255,24,24,1.0)',
-        dashArray: '2', //(Línea punteada, mayor valor menos segmentos)
+        color: 'rgb(34, 255, 0)',
+        /*dashArray: '2', //(Línea punteada, mayor valor menos segmentos)*/
         lineCap: 'square',  
         lineJoin: 'round',  //(Uniones, redondeadas o rectas)
         weight: 0.5,
         fill: true,
-        fillOpacity: 0.15,
-        fillColor: getColor(feature.properties.UV),   // en get color se configura una paleta para c/entidad
+        fillOpacity: 0.4,
         interactive: true,
       }
     }
@@ -437,7 +377,8 @@ th{
         interactive: true,
       }
     }
-*/
+
+
     function styleLab(feature) {
       return{
         opacity: 0,
@@ -450,24 +391,23 @@ th{
         interactive: false,
       }
     }
-    
+  */    
     // 2 DECLARAR CAPAS
     
-    var jvImpe = new L.geoJson(jvImperial, {
-      style: styleJV,
-      onEachFeature: onEachFeatureJV,
+    var areavImpe = new L.geoJson(averdImperial, {
+      style: styleAV,
+      onEachFeature: onEachFeatureAV,
     }).addTo(map);
     
+    /*
     var labJV = new L.geoJson(jvImperial, {
       style: styleLab       
     }).addTo(map);
+  */
   
-    var limPRC = new L.geoJson(limitePRC, {
-      style: stylePRC
-    }).addTo(map);
     
     // ETIQUETADO
-    /*ETIQUETAS JJVV*/
+    /*ETIQUETAS JJVV
     map.on('zoomend', function() {
             var zoom = map.getZoom();
             if( map.hasLayer(jvImpe) ) {
@@ -483,7 +423,7 @@ th{
                 });
             }
         });
-      
+      */
     // CONTROL DE CAPAS
     
     var baselayers = {
@@ -495,8 +435,8 @@ th{
     
     var locTM = {
       "CAPAS DE INFORMACIÓN": {
-        '<img style="margin-bottom:4px; margin-right:4px; box-shadow:2px 2px 2px gray;" src="legend/prcImpe.png" /> Límite PRC': limPRC,
-        '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/jvImpe.png" /> Juntas de vecinos': jvImpe,
+      
+        '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/jvImpe.png" /> Áreas Verdes': areavImpe,
         /*'<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar comunidades': labTM,
         '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe*/
      }
@@ -523,16 +463,16 @@ th{
     
     // BUSQUEDA
     var searchLayers = L.layerGroup([
-       jvImpe
+       areavImpe
     ]);
     
     var searchControl = new L.Control.Search({
             layer: searchLayers, 
-            propertyName: 'NOMBRE',
+            propertyName: 'Nombre',
         initial: false,
             marker: false,
         buildTip: function(text, val) {
-                var type = val.layer.feature.properties.TIPO;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS.
+                var type = val.layer.feature.properties.Tipo;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS SI ASÍ ES EL CASO
                 return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
             },
         zoom: 17,
@@ -582,9 +522,9 @@ th{
     </script>
     <!--SELECTOR DE COLOR-->
     <style>
-      /*
+      /
       .fill{
-        background-color: #4a7eec, rgba(65, 177, 241, 0.1)); 
+        background-color: #4a7eec, rgb(34, 255, 0)); 
       }
       */
     </style>
