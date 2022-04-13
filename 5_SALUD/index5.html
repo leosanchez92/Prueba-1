@@ -504,7 +504,7 @@ function styleLimite(feature) {
                 postasImp.eachLayer( function (layer){
                     //console.log(layer);
                     if ( zoom >= 13 && (!layer.getTooltip()) ) {
-                        tooltiptext = '<b>'+'<div>'+layer.feature.properties.NOMBRE+'</div>'+'</b>';
+                        tooltiptext = '<b>'+'<div>'+layer.feature.properties.NOMBRE+'</div>'+'</b>'+'('+layer.feature.properties.TIPO+')';
                         layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'left'});
                     } else if ( zoom < 13 && (layer.getTooltip()) ) {
                         //console.log('remove tooltip');
