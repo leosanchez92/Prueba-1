@@ -392,7 +392,7 @@ function onEachFeatureLoc(feature, layer) {
 
 
 //ESTILOS
-//Función de estilo para limitecomunal
+//Función de estilo para LIMITE
 function styleLimite(feature) {
   return{
     fillOpacity:0,
@@ -502,7 +502,7 @@ map.on('zoomend', function() {
         if( map.hasLayer(labTM) ) {
             labTM.eachLayer( function (layer){
                 //console.log(layer);
-                if ( zoom >= 13 && (!layer.getTooltip()) ) {
+                if ( zoom >= 11 && (!layer.getTooltip()) ) {
                     tooltiptext = '<b>'+'<div style="color: rgb(99, 4, 4)">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';
                     layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: false , direction: 'center'});
                 } else if ( zoom < 14 && (layer.getTooltip()) ) {
