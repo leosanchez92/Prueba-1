@@ -16,9 +16,11 @@
 <script src="https://kit.fontawesome.com/051401fe98.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+<link rel="stylesheet" href="assets/css/MarkerCluster.css" />
+<link rel="stylesheet" href="assets/css/MarkerCluster.Default.css" />
 <link rel="stylesheet" href="assets/css/L.Control.Locate.scss" />
 <link rel="stylesheet" href="assets/css/leaflet-search.css" />
 <link rel="stylesheet" href="assets/css/leaflet-measure.css"/>
@@ -34,6 +36,7 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <script src="assets/js/index1.js"></script>
 <script src="assets/js/leaflet-search.js"></script>
 <script src="assets/js/leaflet-sidebar.js"></script>
+<script src="assets/js/leaflet.markercluster-src.js"></script>
 <script src="assets/js/leaflet-measure.js"></script>
 <script src="assets/js/leaflet.groupedlayercontrol.min.js"></script>
 <!-- 
@@ -54,6 +57,7 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <script type="text/javascript" src="data/comunidades2022.js"></script>
 <script type="text/javascript" src="data/loc2022.js"></script>
 <script type="text/javascript" src="data/puntos_loc_.js"></script>
+<script type="text/javascript" src="data/sedes_rurales.js"></script>
 <!-- <link rel="stylesheet" href="assets/css/leaflet.groupedlayercontrol.min.css" /> -->
 
 <style>
@@ -233,12 +237,14 @@ th{
 <script>
 
 // MODAL INICIO
+/*
 window.onload = function () {
         OpenBootstrapPopup();
     };
     function OpenBootstrapPopup() {
         $("#aboutModal1").modal('show');
     }
+*/
 
 // MAPA BASE
 var map = L.map('map', {zoomControl: false, minZoom: 10, maxZoom: 16, zoomSnap: 0.5}).setView([-38.6959326, -72.98552], 10.5);
@@ -390,6 +396,33 @@ function onEachFeatureLoc(feature, layer) {
   });
 }
 
+// OnEachFeature Sedes Rurales
+function onEachFeatureSedeR(feature, layer) {
+      var popupContent =  '<div style="text-align:center"><h6>Sede Rural</h6></div>\
+                          <table class="table table-sm table-borderless">\
+                          <tr>\
+                            <th scope="row">Nombre</th>\
+                            <td>' + ":" + '</td>\
+                            <td>' + (feature.properties.NOMBRE) + '</td>\
+                          </tr>\
+                          <tr>\
+                            <th scope="row">Comunidad</th>\
+                            <td>' + ":" + '</td>\
+                            <td>' + (feature.properties.Comunidad) + '</td>\
+                          </tr>\
+                          <tr>\
+                            <th scope="row">Sector</th>\
+                            <td>' + ":" + '</td>\
+                            <td>' + (feature.properties.Sector) + '</td>\
+                          </tr>\
+                          </table>\
+                          '
+                          ;
+      layer.bindPopup(popupContent,{
+        maxHeight: 400,
+      });
+    }
+
 
 //ESTILOS
 //Función de estilo para LIMITE
@@ -456,6 +489,23 @@ function styleLoc(feature) {
   }
 }
 
+//Función de estilo sedes
+
+var iconoCat = L.divIcon({
+              className: 'custom-div-icon',
+              html: "<div style='background-color: #145f' class='marker-pin-g'></div><i style='color:#044b09'; class='fa fa-house-user fa-3x'>",
+              iconSize: [28, 42],
+              popupAnchor: [12, -30],
+              iconAnchor: [15, 42]
+        });
+      
+    function iconSedRur(feature) {
+      var icon;
+        if (feature.properties.TIPO == 'Deportivo') icon = iconoCat;
+        else icon = iconoCat;
+      return icon
+    };
+
 //CARGAR CAPAS
 var imp = L.geoJson(limiteComunal, {
   style: styleLimite,
@@ -478,6 +528,18 @@ var labTM = new L.geoJson(com2022, {
 var labImpe = new L.geoJson(locImperial, {
   style: styleLab
 });
+
+var sedeRuralImp = new L.geoJson(sruralImperial, {
+      pointToLayer: function (feature, latlong) {
+        return L.marker(latlong, {icon: iconSedRur(feature), interactive: true})
+      },
+      onEachFeature: onEachFeatureSedeR,
+    });
+
+    var clusters = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      disableClusteringAtZoom: 17,
+    });clusters.addLayer(sedeRuralImp).addTo(map);
 
 // ETIQUETADO
 
@@ -528,7 +590,8 @@ var locTM = {
     '<img style="margin-bottom:4px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/tmImp.png" /> Comunidades': tmImpe,
     '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/locRural.png" /> Localidades rurales': locImpe,
     '<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar comunidades': labTM,
-    '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe
+    '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe,  
+    ' Sedes<br><img style="margin-bottom:5px; margin-right:4px;"; width="25px"; height:"25px"; src="legend/sede_rural.png" />Rurales<br>': clusters,
  }
 };
 
@@ -555,7 +618,7 @@ setParent(htmlObject, a);
 // BUSQUEDA
 var searchLayers = L.layerGroup([
   tmImpe,
-   locImpe
+   locImpe,
 ]);
 
 var searchControl = new L.Control.Search({
@@ -567,7 +630,7 @@ var searchControl = new L.Control.Search({
 			var type = val.layer.feature.properties.TIPO;
 			return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
 		},
-    zoom: 12,
+    zoom: 13,
     textPlaceholder: 'Buscar localidad/comunidad',
     textCancel: 'Cancelar',
     textErr: 'No encontrado',
@@ -617,7 +680,7 @@ scale.addTo(map);
 <style>
   /*
   .fill{
-    background-color: #06f8f8, rgb(84, 90, 5)); 
+    background-color: #044b09, rgb(84, 90, 5)); 
   }
   */
 </style>
