@@ -422,7 +422,7 @@ th{
       return icon
     };
     
-    //Variable de estilo para URBANO
+    //Función de estilo para ESTABLECIMIENTOS URBANOS
     var iconoCat2 = L.divIcon({
               className: 'custom-div-icon',
               html: "<div style='background-color: red' class='marker-pin-f'></div><i style='color:white'; class='fa-solid fa-hospital'>",
@@ -512,7 +512,7 @@ function styleLimite(feature) {
                 postasImp.eachLayer( function (layer){
                     //console.log(layer);
                     if ( zoom >= 12 && (!layer.getTooltip()) ) {
-                        tooltiptext = '<b>'+'<div>'+layer.feature.properties.NOMBRE+'</div>'+'</b>'+'('+layer.feature.properties.TIPO+')';
+                        tooltiptext = '<b>'+'<div>'+layer.feature.properties.NOMBRE+'</div>'+'</b>'+'(<i>'+layer.feature.properties.TIPO+'</i>)';
                         layer.bindTooltip(tooltiptext , { sticky: true ,permanent: true, interactive: true , direction: 'left'});
                     } else if ( zoom < 13 && (layer.getTooltip()) ) {
                         //console.log('remove tooltip');

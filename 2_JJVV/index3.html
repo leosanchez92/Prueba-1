@@ -20,6 +20,8 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 <link rel="stylesheet" href="assets/css/L.Control.Locate.scss" />
+<link rel="stylesheet" href="assets/css/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="assets/css/MarkerCluster.css" />
 <link rel="stylesheet" href="assets/css/leaflet-search.css" />
 <link rel="stylesheet" href="assets/css/leaflet-measure.css"/>
 
@@ -33,6 +35,7 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <script src="assets/js/leaflet.zoomhome.js"></script>
 <script src="assets/js/index1.js"></script>
 <script src="assets/js/leaflet-search.js"></script>
+<script src="assets/js/leaflet.markercluster-src.js"></script>
 <script src="assets/js/leaflet-sidebar.js"></script>
 <script src="assets/js/leaflet-measure.js"></script>
 <script src="assets/js/leaflet.groupedlayercontrol.min.js"></script>
@@ -51,8 +54,8 @@ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/k
 <meta name="theme-color" content="#ffffff">
 <!---CAPAS-GEOJSON--->
 <script type="text/javascript" src="data/jjvv_impe.js"></script>
-<script type="text/javascript" src="data/prc_imp.js"></script>
 <script type="text/javascript" src="data/limite_prc.js"></script>
+<script type="text/javascript" src="data/sedes_urb.js"></script>
 
 
 <!--
@@ -349,6 +352,33 @@ th{
       });
     }
     
+     // OnEachFeature Urbano
+     function onEachFeatureSedes(feature, layer) {
+      var popupContent =  '<div style="text-align:center"><h6>Sede Urbana</h6></div>\
+                          <table class="table table-sm table-borderless">\
+                          <tr>\
+                            <th scope="row">Nombre</th>\
+                            <td>' + ":" + '</td>\
+                            <td>' + (feature.properties.NOMBRE) + '</td>\
+                          </tr>\
+                          <tr>\
+                            <th scope="row">Tipo</th>\
+                            <td>' + ":" + '</td>\
+                            <td>' + (feature.properties.TIPO) + '</td>\
+                          </tr>\
+                          <tr>\
+                            <th scope="row">JJVV Nº</th>\
+                            <td>' + ":" + '</td>\
+                            <td>' + (feature.properties.JJVV_Nº) + '</td>\
+                          </tr>\
+                          </table>\
+                          '
+                          ;
+      layer.bindPopup(popupContent,{
+        maxHeight: 400,
+      });
+    }
+
     //3 ESTILOS
     //Función de estilo para PRC
     function stylePRC(feature) {
@@ -421,23 +451,7 @@ th{
       }
     }
     
-    /*Función de estilo para Loc
-    function styleLoc(feature) {
-      return{
-        fillOpacity: 0,
-        opacity: 0.2,
-        color: 'rgba(34,24,24,1.0)',
-        //dashArray: '10,5', (Línea punteada, mayor valor menos segmentos)
-        lineCap: 'butt',  
-        lineJoin: 'round',  //(Uniones, redondeadas o rectas)
-        weight: 0.6,
-        fill: true,
-        fillOpacity: 0.3,
-        fillColor: '#f58925', 
-        interactive: true,
-      }
-    }
-*/
+    //Función de estilo para etiquetas JV
     function styleLab(feature) {
       return{
         opacity: 0,
@@ -450,8 +464,39 @@ th{
         interactive: false,
       }
     }
+
+    //Función de estilo para sedes
+    var iconoCat2 = L.divIcon({
+              className: 'custom-div-icon',
+              html: "<div style='background-color: #1443d0' class='marker-pin-g'></div><i style='color:#c36800'; class='fa fa-house-circle-check'>",
+              iconSize: [28, 42],
+              popupAnchor: [12, -30],
+              iconAnchor: [15, 42]
+        });
+
+    var iconoCat3 = L.divIcon({
+              className: 'custom-div-icon',
+              html: "<div style='background-color: #145f' class='marker-pin-g'></div><i style='color:#145f'; class='fa fa-house-circle-check'>",
+              iconSize: [28, 42],
+              popupAnchor: [12, -30],
+              iconAnchor: [15, 42]
+        });
+      
+    function iconSedurb(feature) {
+      var icon;
+        if (feature.properties.TIPO == 'Deportivo') icon = iconoCat2;
+        else icon = iconoCat3;
+      return icon
+    };
     
     // 2 DECLARAR CAPAS
+    
+    var sedurbImp = new L.geoJson(sedurbImperial, {
+      pointToLayer: function (feature, latlong) {
+        return L.marker(latlong, {icon: iconSedurb(feature), interactive: true})
+      },
+      onEachFeature: onEachFeatureSedes,
+    });
     
     var jvImpe = new L.geoJson(jvImperial, {
       style: styleJV,
@@ -466,6 +511,13 @@ th{
       style: stylePRC
     }).addTo(map);
     
+    var clusters = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      disableClusteringAtZoom: 17,
+
+    });
+    clusters.addLayer(sedurbImp);
+
     // ETIQUETADO
     /*ETIQUETAS JJVV*/
     map.on('zoomend', function() {
@@ -497,6 +549,7 @@ th{
       "CAPAS DE INFORMACIÓN": {
         '<img style="margin-bottom:4px; margin-right:4px; box-shadow:2px 2px 2px gray;" src="legend/prcImpe.png" /> Límite PRC': limPRC,
         '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/jvImpe.png" /> Juntas de vecinos': jvImpe,
+        ' Sedes urbanas<br><img style="margin-bottom:5px; margin-right:4px;"; width="25px"; height:"25px"; src="legend/sede2.png" />Juntas de vecinos<br><img style="margin-bottom:5px; margin-right:4px;" ; width="25px"; height:"25px"; src="legend/sede1.png" />Deportivas<br>': clusters,
         /*'<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar comunidades': labTM,
         '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe*/
      }
@@ -525,23 +578,25 @@ th{
     var searchLayers = L.layerGroup([
        jvImpe
     ]);
+
+    var searchLayers2 = L.layerGroup([
+       clusters
+    ]);
     
     var searchControl = new L.Control.Search({
-            layer: searchLayers, 
+            layer: searchLayers,
             propertyName: 'NOMBRE',
         initial: false,
+        
             marker: false,
         buildTip: function(text, val) {
                 var type = val.layer.feature.properties.TIPO;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS.
                 return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
             },
         zoom: 17,
-        textPlaceholder: 'Buscar junta de vecinos',
+        textPlaceholder: 'Buscar unidad vecinal',
         textCancel: 'Cancelar',
         textErr: 'No encontrado',
-        marker: {
-          icon: 'fa fa-map-marker',
-        },
     });
          
       searchControl.on('search:locationfound', function(e) {
@@ -549,17 +604,36 @@ th{
             if(e.layer._popup)
                 e.layer.openPopup();
     }).on('search:collapsed', function(e) {
-            prcImpe.eachLayer(function(layer) {	// restaurar color entidad
-          prcImpe.resetStyle(layer);
-            });	
         jvImpe.eachLayer(function(layer) {	// restaurar color entidad
           jvImpe.resetStyle(layer);
             });	
     });
     
-    // MEDICION DE DISTANCIAS (SOLO EN PC)
+    var searchControl2 = new L.Control.Search({
+            layer: searchLayers2,
+            propertyName: 'NOMBRE',
+        initial: false,
+            marker: false,
+        buildTip: function(text, val) {
+                var type = val.layer.feature.properties.TIPO;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS.
+                return '<a href="#" class="'+type+'">'+text+'<b>Sede '+type+'</b></a>';
+            },
+        zoom: 17,
+        textPlaceholder: 'Buscar sedes',
+        textCancel: 'Cancelar',
+        textErr: 'No encontrado',
+    });
+
+    searchControl2.on('search:locationfound', function(e) {
+            if(e.layer._popup)
+                e.layer.openPopup();
+    });
     
     map.addControl(searchControl);
+    map.addControl(searchControl2);
+
+    // MEDICION DE DISTANCIAS (SOLO EN PC)
+    
     var measureControl = new L.Control.Measure({
                 position: 'topleft',
           primaryLengthUnit: 'meters',
@@ -584,7 +658,7 @@ th{
     <style>
       /*
       .fill{
-        background-color: #4a7eec, rgba(65, 177, 241, 0.1)); 
+        background-color: #0868a0, rgba(65, 177, 241, 0.1)); 
       }
       */
     </style>
