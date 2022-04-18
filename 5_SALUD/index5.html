@@ -245,7 +245,7 @@ th{
       */ 
 
     // MAPA BASE
-  var map = L.map('map', {zoomControl: false, minZoom: 10, maxZoom: 17, zoomSnap: 0.5}).setView([-38.7421229, -72.9458827], 12);
+  var map = L.map('map', {zoomControl: false, minZoom: 10, maxZoom: 17, zoomSnap: 0.5}).setView([-38.7121229, -72.9458827], 10.4);
     
   var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -535,6 +535,7 @@ function styleLimite(feature) {
       "CAPAS DE INFORMACIÓN": {
       
         ' Establecimientos rurales<br><img style="margin-bottom:5px; margin-right:4px;"; width="25px"; height:"25px"; src="legend/prcImpe.png" />Posta<br><img style="margin-bottom:5px; margin-right:4px;" ; width="25px"; height:"25px"; src="legend/prcImpe2.png" />Estación médico rural<br><img style="margin-bottom:5px; margin-right:4px;" ; width="25px"; height:"25px"; src="legend/prcImpe3.png" />Intercultural': postasImp,
+        ' Establecimientos urbanos<br>': clusters
         /*'<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar comunidades': labTM,
         '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe*/
      }
