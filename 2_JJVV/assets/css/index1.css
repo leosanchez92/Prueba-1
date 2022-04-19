@@ -7,8 +7,6 @@ body {
   body{
     padding-top: 48px
   };
-
-
 }
 
 html, body, #container {
@@ -165,3 +163,4 @@ a:link, a:visited, a:hover, a:active {
    margin: 12px auto;
    font-size: 17px;
 }
+

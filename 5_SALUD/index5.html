@@ -255,7 +255,7 @@ th{
         minNativeZoom: 0,
         maxNativeZoom: 18,
         zIndex: 400,
-    });
+    }).addTo(map);
     
   var ESRIsat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: '©<a href="http://www.esri.com/"> Esri</a>',
@@ -275,7 +275,7 @@ th{
         minNativeZoom: 0,
         maxNativeZoom: 18,
         zIndex: 401,
-    }).addTo(map);
+    });
     
   var openTopo = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
         attribution: 'TopOSM was created by User: Ahlzen, with contributions from several others, including Ian Dees, Nick Thompson and Phil Gold.',

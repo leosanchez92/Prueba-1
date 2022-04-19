@@ -162,7 +162,8 @@ th{
   </nav>
 </header>
 <!--MAP-->
-<div id="map" class=""></div>
+<div id="map" class="">
+</div>
 
 <!-- Modal inicio -->
 <div class="modal fade" id="aboutModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -521,8 +522,8 @@ th{
     /*ETIQUETAS JJVV*/
     map.on('zoomend', function() {
             var zoom = map.getZoom();
-            if( map.hasLayer(jvImpe) ) {
-                jvImpe.eachLayer( function (layer){
+            if( map.hasLayer(labJV) ) {
+                labJV.eachLayer( function (layer){
                     //console.log(layer);
                     if ( zoom >= 15 && (!layer.getTooltip()) ) {
                         tooltiptext = '<b>'+'<div style="color:darkblue">'+layer.feature.properties.NOMBRE+'</div>'+'</b>';
@@ -548,9 +549,10 @@ th{
       "CAPAS DE INFORMACIÓN": {
         '<img style="margin-bottom:4px; margin-right:4px; box-shadow:2px 2px 2px gray;" src="legend/prcImpe.png" /> Límite PRC': limPRC,
         '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/jvImpe.png" /> Juntas de vecinos': jvImpe,
+        '<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar': labJV,
         ' Sedes urbanas<br><img style="margin-bottom:5px; margin-right:4px;"; width="25px"; height:"25px"; src="legend/sede2.png" />Juntas de vecinos<br><img style="margin-bottom:5px; margin-right:4px;" ; width="25px"; height:"25px"; src="legend/sede1.png" />Deportivas<br>': clusters,
-        /*'<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar comunidades': labTM,
-        '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe*/
+
+        /*'<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe*/
      }
     };
     
@@ -583,14 +585,13 @@ th{
     ]);
     
     var searchControl = new L.Control.Search({
-            layer: searchLayers,
-            propertyName: 'NOMBRE',
-        initial: false,
-        
-            marker: false,
+        layer: searchLayers,
+        propertyName: 'NOMBRE',
+        initial: false,    
+        marker: false,
         buildTip: function(text, val) {
-                var type = val.layer.feature.properties.TIPO;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS.
-                return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
+          var type = val.layer.feature.properties.TIPO;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS.
+          return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
             },
         zoom: 17,
         textPlaceholder: 'Buscar unidad vecinal',
@@ -598,30 +599,40 @@ th{
         textErr: 'No encontrado',
     });
          
-      searchControl.on('search:locationfound', function(e) {
-            e.layer.setStyle({fillColor: '#25c5f5', color: '#25c5f5', opacity: 0.8});
-            if(e.layer._popup)
-                e.layer.openPopup();
+    searchControl.on('search:locationfound', function(e) {
+        e.layer.setStyle({fillColor: '#25c5f5', color: '#25c5f5', opacity: 0.8});
+        if(e.layer._popup)
+        e.layer.openPopup();
     }).on('search:collapsed', function(e) {
         jvImpe.eachLayer(function(layer) {	// restaurar color entidad
           jvImpe.resetStyle(layer);
             });	
     });
     
-    var searchControl2 = new L.Control.Search({
-            layer: searchLayers2,
-            propertyName: 'NOMBRE',
+    var asda = L.DomUtil.create('id')
+
+    var searchControl2 = new L.Control.Search({ 
+        layer: searchLayers2,
+        propertyName: 'NOMBRE',
         initial: false,
-            marker: false,
+        marker: false,
         buildTip: function(text, val) {
-                var type = val.layer.feature.properties.TIPO;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS.
-                return '<a href="#" class="'+type+'">'+text+'<b>Sede '+type+'</b></a>';
-            },
+          var type = val.layer.feature.properties.TIPO;      // properties.TIPO DECLARA LA CLASE DE LA ENTIDAD, CREAR CAMPO EN JS.
+          return '<a href="#" class="'+type+'">'+text+'<b>Sede '+type+'</b></a>';
+          },
         zoom: 17,
         textPlaceholder: 'Buscar sedes',
         textCancel: 'Cancelar',
         textErr: 'No encontrado',
-    });
+    }
+    );
+
+
+    var saonda = document.querySelectorAll('[_leaflet_id="290"]');
+
+    searchControl2.add = 'dd';
+  console.log("PARAD", saonda)
+
 
     searchControl2.on('search:locationfound', function(e) {
             if(e.layer._popup)
