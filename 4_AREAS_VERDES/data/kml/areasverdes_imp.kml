@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
-	<name>areas_verdes2022</name>
-	<LookAt>
-		<longitude>-72.94514555198836</longitude>
-		<latitude>-38.74488570940694</latitude>
-		<altitude>0</altitude>
-		<heading>-0.5990179265998843</heading>
-		<tilt>34.06672272257725</tilt>
-		<range>3790.162360108317</range>
-		<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
-	</LookAt>
-	<StyleMap id="style1">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#style11</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#style10</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Style id="style10">
+	<name>areas_vv_2022</name>
+	<Style id="style1">
 		<LineStyle>
 			<color>bf034d13</color>
 		</LineStyle>
@@ -29,6 +10,16 @@
 			<color>8c47fa8c</color>
 		</PolyStyle>
 	</Style>
+	<StyleMap id="style10">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#style11</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#style1</styleUrl>
+		</Pair>
+	</StyleMap>
 	<Style id="style11">
 		<LineStyle>
 			<color>bf034d13</color>
@@ -39,10 +30,11 @@
 	</Style>
 	<Placemark>
 		<name>1</name>
-		<description><![CDATA[<hr/>Nombre: El Bosque
+		<description><![CDATA[<p>
+Nombre: El Bosque
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -64,6 +56,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta El Bosque</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -75,15 +75,24 @@
 						</coordinates>
 					</LinearRing>
 				</outerBoundaryIs>
+				<innerBoundaryIs>
+					<LinearRing>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-72.94579482790695,-38.73368929462472,0 -72.94580037752571,-38.73389154571609,0 -72.94539198188356,-38.73389103041421,0 -72.9454036964263,-38.73368019698312,0 -72.94579482790695,-38.73368929462472,0 
+						</coordinates>
+					</LinearRing>
+				</innerBoundaryIs>
 			</Polygon>
 		</MultiGeometry>
 	</Placemark>
 	<Placemark>
 		<name>2</name>
-		<description><![CDATA[<hr/>Nombre: Michelle Bachelet
+		<description><![CDATA[<p>
+Nombre: Michelle Bachelet
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -105,6 +114,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Michelle Bachelet</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -121,10 +138,11 @@
 	</Placemark>
 	<Placemark>
 		<name>3</name>
-		<description><![CDATA[<hr/>Nombre: Plazoleta Las Golondrinas
+		<description><![CDATA[<p>
+Nombre: Plazoleta Las Golondrinas
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -146,6 +164,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Las Golondrinas</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -162,10 +188,11 @@
 	</Placemark>
 	<Placemark>
 		<name>4</name>
-		<description><![CDATA[<hr/>Nombre: La Unión
+		<description><![CDATA[<p>
+Nombre: La Unión
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -187,6 +214,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta La Unión</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -203,10 +238,11 @@
 	</Placemark>
 	<Placemark>
 		<name>5</name>
-		<description><![CDATA[<hr/>Nombre: Presidente Lagos
+		<description><![CDATA[<p>
+Nombre: Presidente Lagos
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -228,6 +264,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Presidente Lagos</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -239,15 +283,24 @@
 						</coordinates>
 					</LinearRing>
 				</outerBoundaryIs>
+				<innerBoundaryIs>
+					<LinearRing>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-72.9455463023137,-38.7373636746478,0 -72.94555013288191,-38.73762587499765,0 -72.94535105327827,-38.73764458943753,0 -72.94535604632681,-38.73737143690258,0 -72.9455463023137,-38.7373636746478,0 
+						</coordinates>
+					</LinearRing>
+				</innerBoundaryIs>
 			</Polygon>
 		</MultiGeometry>
 	</Placemark>
 	<Placemark>
 		<name>6</name>
-		<description><![CDATA[<hr/>Nombre: Los Altos de Imperial
+		<description><![CDATA[<p>
+Nombre: Los Altos de Imperial
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -269,6 +322,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta L. Altos de Imperial</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -285,10 +346,11 @@
 	</Placemark>
 	<Placemark>
 		<name>7</name>
-		<description><![CDATA[<hr/>Nombre: El Esfuerzol
+		<description><![CDATA[<p>
+Nombre: El Esfuerzo
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -296,7 +358,7 @@
 			</Data>
 			<Data name="Nombre">
 				<displayName>Nombre</displayName>
-				<value>El Esfuerzol</value>
+				<value>El Esfuerzo</value>
 			</Data>
 			<Data name="Tipo">
 				<displayName>Tipo</displayName>
@@ -309,6 +371,14 @@
 			<Data name="Lugar">
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
+			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha El Esfuerzo</value>
 			</Data>
 		</ExtendedData>
 		<MultiGeometry>
@@ -326,10 +396,11 @@
 	</Placemark>
 	<Placemark>
 		<name>8</name>
-		<description><![CDATA[<hr/>Nombre: Los Alerces
+		<description><![CDATA[<p>
+Nombre: Los Alerces
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -351,6 +422,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Los Alerces</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -367,10 +446,11 @@
 	</Placemark>
 	<Placemark>
 		<name>9</name>
-		<description><![CDATA[<hr/>Nombre: Plazoleta Coñoepan
+		<description><![CDATA[<p>
+Nombre: Plazoleta Coñoepan
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -392,6 +472,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Coñoepan</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -408,10 +496,11 @@
 	</Placemark>
 	<Placemark>
 		<name>10</name>
-		<description><![CDATA[<hr/>Nombre: Villa Los Ríos
+		<description><![CDATA[<p>
+Nombre: Villa Los Ríos
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -433,6 +522,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Villa Los Ríos</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -449,10 +546,11 @@
 	</Placemark>
 	<Placemark>
 		<name>11</name>
-		<description><![CDATA[<hr/>Nombre: Multicancha Eduardo Frei
+		<description><![CDATA[<p>
+Nombre: Multicancha Eduardo Frei
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -474,6 +572,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Eduard</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -490,10 +596,11 @@
 	</Placemark>
 	<Placemark>
 		<name>12</name>
-		<description><![CDATA[<hr/>Nombre: Estadio Municipal
+		<description><![CDATA[<p>
+Nombre: Estadio Municipal
 <br/>Tipo: Estadio
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -515,6 +622,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Estadio Municipal</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -531,10 +646,11 @@
 	</Placemark>
 	<Placemark>
 		<name>13</name>
-		<description><![CDATA[<hr/>Nombre: El Esfuerzo
+		<description><![CDATA[<p>
+Nombre: El Esfuerzo
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -556,6 +672,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos El Esfuerzo</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -572,10 +696,11 @@
 	</Placemark>
 	<Placemark>
 		<name>14</name>
-		<description><![CDATA[<hr/>Nombre: Plazoleta Corvi
-<br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+		<description><![CDATA[<p>
+Nombre: Plazoleta Corvi
+<br/>Tipo: Plazoleta
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -587,7 +712,7 @@
 			</Data>
 			<Data name="Tipo">
 				<displayName>Tipo</displayName>
-				<value>Multicancha</value>
+				<value>Plazoleta</value>
 			</Data>
 			<Data name="Sup_m2">
 				<displayName>Sup_m2</displayName>
@@ -596,6 +721,14 @@
 			<Data name="Lugar">
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
+			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Corvi</value>
 			</Data>
 		</ExtendedData>
 		<MultiGeometry>
@@ -613,10 +746,11 @@
 	</Placemark>
 	<Placemark>
 		<name>15</name>
-		<description><![CDATA[<hr/>Nombre: Rafael Sotomayor
+		<description><![CDATA[<p>
+Nombre: Rafael Sotomayor
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -638,6 +772,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Rafael Sotomayor</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -654,10 +796,11 @@
 	</Placemark>
 	<Placemark>
 		<name>16</name>
-		<description><![CDATA[<hr/>Nombre: Parque Borde Río
+		<description><![CDATA[<p>
+Nombre: Parque Borde Río
 <br/>Tipo: Parque
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -679,6 +822,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Parque Borde Río</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -695,10 +846,11 @@
 	</Placemark>
 	<Placemark>
 		<name>17</name>
-		<description><![CDATA[<hr/>Nombre: Recinto Estación
+		<description><![CDATA[<p>
+Nombre: Recinto Estación
 <br/>Tipo: Parque
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -720,6 +872,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Parque Recinto Estación</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -736,10 +896,11 @@
 	</Placemark>
 	<Placemark>
 		<name>18</name>
-		<description><![CDATA[<hr/>Nombre: Vista Hermosa
+		<description><![CDATA[<p>
+Nombre: Vista Hermosa
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -761,6 +922,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Vista Hermosa</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -777,10 +946,11 @@
 	</Placemark>
 	<Placemark>
 		<name>19</name>
-		<description><![CDATA[<hr/>Nombre: Vista Hermosa
+		<description><![CDATA[<p>
+Nombre: Vista Hermosa
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -802,6 +972,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Vista Hermosa</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -818,10 +996,11 @@
 	</Placemark>
 	<Placemark>
 		<name>20</name>
-		<description><![CDATA[<hr/>Nombre: Complejo Dep. Diego Portales
+		<description><![CDATA[<p>
+Nombre: Complejo Dep. Diego Portales
 <br/>Tipo: Complejo Deportivo
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -843,6 +1022,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Complejo Dep. Diego Portales</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -859,10 +1046,11 @@
 	</Placemark>
 	<Placemark>
 		<name>21</name>
-		<description><![CDATA[<hr/>Nombre: Santa Teresa
+		<description><![CDATA[<p>
+Nombre: Santa Teresa
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -884,6 +1072,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Santa Teresa</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -900,10 +1096,11 @@
 	</Placemark>
 	<Placemark>
 		<name>22</name>
-		<description><![CDATA[<hr/>Nombre: Santa Teresa
+		<description><![CDATA[<p>
+Nombre: Santa Teresa
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -925,6 +1122,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Santa Teresa</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -941,10 +1146,11 @@
 	</Placemark>
 	<Placemark>
 		<name>23</name>
-		<description><![CDATA[<hr/>Nombre: Multicancha Araucanía
+		<description><![CDATA[<p>
+Nombre: Multicancha Araucanía
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -966,6 +1172,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Arauca</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -982,10 +1196,11 @@
 	</Placemark>
 	<Placemark>
 		<name>24</name>
-		<description><![CDATA[<hr/>Nombre: Santa Teresa
+		<description><![CDATA[<p>
+Nombre: Santa Teresa
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1007,6 +1222,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Santa Teresa</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1023,10 +1246,11 @@
 	</Placemark>
 	<Placemark>
 		<name>25</name>
-		<description><![CDATA[<hr/>Nombre: Parque Coilaco
+		<description><![CDATA[<p>
+Nombre: Parque Coilaco
 <br/>Tipo: Parque
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1048,6 +1272,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Parque Coilaco</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1064,10 +1296,11 @@
 	</Placemark>
 	<Placemark>
 		<name>26</name>
-		<description><![CDATA[<hr/>Nombre: Plaza Los Aromos
+		<description><![CDATA[<p>
+Nombre: Plaza Los Aromos
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1089,6 +1322,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Plaza Los Aromos</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1105,10 +1346,11 @@
 	</Placemark>
 	<Placemark>
 		<name>27</name>
-		<description><![CDATA[<hr/>Nombre: Plaza Las Estrellas
+		<description><![CDATA[<p>
+Nombre: Plaza Las Estrellas
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1130,6 +1372,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Plaza Las Estrellas</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1146,10 +1396,11 @@
 	</Placemark>
 	<Placemark>
 		<name>28</name>
-		<description><![CDATA[<hr/>Nombre: Avenida O Higgins
+		<description><![CDATA[<p>
+Nombre: Avenida O Higgins
 <br/>Tipo: Bandejón
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1171,6 +1422,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Bandejón Avenida O Higgins</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1187,10 +1446,11 @@
 	</Placemark>
 	<Placemark>
 		<name>29</name>
-		<description><![CDATA[<hr/>Nombre: Avenida O Higgins
+		<description><![CDATA[<p>
+Nombre: Avenida O Higgins
 <br/>Tipo: Bandejón
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1212,6 +1472,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Bandejón Avenida O Higgins</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1228,10 +1496,11 @@
 	</Placemark>
 	<Placemark>
 		<name>30</name>
-		<description><![CDATA[<hr/>Nombre: Avenida O Higgins
+		<description><![CDATA[<p>
+Nombre: Avenida O Higgins
 <br/>Tipo: Bandejón
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1253,6 +1522,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Bandejón Avenida O Higgins</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1269,10 +1546,11 @@
 	</Placemark>
 	<Placemark>
 		<name>31</name>
-		<description><![CDATA[<hr/>Nombre: Juegos Coilaco
+		<description><![CDATA[<p>
+Nombre: Juegos Coilaco
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1294,6 +1572,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Coilaco</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1310,10 +1596,11 @@
 	</Placemark>
 	<Placemark>
 		<name>32</name>
-		<description><![CDATA[<hr/>Nombre: Juegos Pedro de Valdivia
+		<description><![CDATA[<p>
+Nombre: Juegos Pedro de Valdivia
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1335,6 +1622,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Pedro de Valdivia</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1351,10 +1646,11 @@
 	</Placemark>
 	<Placemark>
 		<name>33</name>
-		<description><![CDATA[<hr/>Nombre: Coilaco
+		<description><![CDATA[<p>
+Nombre: Coilaco
 <br/>Tipo: Zona Descanso
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1376,6 +1672,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Zona Descanso I Coilaco</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1392,10 +1696,11 @@
 	</Placemark>
 	<Placemark>
 		<name>34</name>
-		<description><![CDATA[<hr/>Nombre: Parque Thiers
+		<description><![CDATA[<p>
+Nombre: Parque Thiers
 <br/>Tipo: Parque
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1417,6 +1722,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Parque Thiers</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1433,10 +1746,11 @@
 	</Placemark>
 	<Placemark>
 		<name>35</name>
-		<description><![CDATA[<hr/>Nombre: El Portal
+		<description><![CDATA[<p>
+Nombre: El Portal
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1458,6 +1772,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos El Portal</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1474,10 +1796,11 @@
 	</Placemark>
 	<Placemark>
 		<name>36</name>
-		<description><![CDATA[<hr/>Nombre: El Esfuerzo
+		<description><![CDATA[<p>
+Nombre: El Esfuerzo
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1499,6 +1822,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta El Esfuerzo</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1515,10 +1846,11 @@
 	</Placemark>
 	<Placemark>
 		<name>37</name>
-		<description><![CDATA[<hr/>Nombre: La Unión
+		<description><![CDATA[<p>
+Nombre: La Unión
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1540,6 +1872,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta La Unión</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1556,10 +1896,11 @@
 	</Placemark>
 	<Placemark>
 		<name>38</name>
-		<description><![CDATA[<hr/>Nombre: Los Aromos del Alto
+		<description><![CDATA[<p>
+Nombre: Los Aromos del Alto
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1581,6 +1922,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Los Aromos</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1597,10 +1946,11 @@
 	</Placemark>
 	<Placemark>
 		<name>39</name>
-		<description><![CDATA[<hr/>Nombre: Plaza Pedro de Valdivia
+		<description><![CDATA[<p>
+Nombre: Plaza Pedro de Valdivia
 <br/>Tipo: Plaza
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1622,6 +1972,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plaza Plaza Pedro de Valdivia</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1638,10 +1996,11 @@
 	</Placemark>
 	<Placemark>
 		<name>40</name>
-		<description><![CDATA[<hr/>Nombre: Ultra CholChol
+		<description><![CDATA[<p>
+Nombre: Ultra CholChol
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1663,6 +2022,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Ultra CholChol</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1679,10 +2046,11 @@
 	</Placemark>
 	<Placemark>
 		<name>41</name>
-		<description><![CDATA[<hr/>Nombre: Multicancha Lynch
+		<description><![CDATA[<p>
+Nombre: Multicancha Lynch
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1704,6 +2072,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Lynch</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1720,10 +2096,11 @@
 	</Placemark>
 	<Placemark>
 		<name>42</name>
-		<description><![CDATA[<hr/>Nombre: Juegos Carrera
+		<description><![CDATA[<p>
+Nombre: Juegos Carrera
 <br/>Tipo: Juegos
-<br/>Lugar: Villa Almagro</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1745,6 +2122,14 @@
 				<displayName>Lugar</displayName>
 				<value>Villa Almagro</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Carrera</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1761,10 +2146,11 @@
 	</Placemark>
 	<Placemark>
 		<name>43</name>
-		<description><![CDATA[<hr/>Nombre: Cancha Almagro
+		<description><![CDATA[<p>
+Nombre: Cancha Almagro
 <br/>Tipo: Cancha
-<br/>Lugar: Villa Almagro</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1786,6 +2172,14 @@
 				<displayName>Lugar</displayName>
 				<value>Villa Almagro</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Cancha Almagro</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1802,10 +2196,11 @@
 	</Placemark>
 	<Placemark>
 		<name>44</name>
-		<description><![CDATA[<hr/>Nombre: Juegos Pedro de Valdivia
+		<description><![CDATA[<p>
+Nombre: Juegos Pedro de Valdivia
 <br/>Tipo: Juegos
-<br/>Lugar: Villa Almagro</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1827,6 +2222,14 @@
 				<displayName>Lugar</displayName>
 				<value>Villa Almagro</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos P.de Valdivia Almagro</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1843,10 +2246,11 @@
 	</Placemark>
 	<Placemark>
 		<name>45</name>
-		<description><![CDATA[<hr/>Nombre: Multicancha Juvencio Valle
+		<description><![CDATA[<p>
+Nombre: Multicancha Juvencio Valle
 <br/>Tipo: Multicancha
-<br/>Lugar: Villa Almagro</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1868,6 +2272,14 @@
 				<displayName>Lugar</displayName>
 				<value>Villa Almagro</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Juvencio Valle</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1884,10 +2296,11 @@
 	</Placemark>
 	<Placemark>
 		<name>46</name>
-		<description><![CDATA[<hr/>Nombre: Plazoleta Juvencio Valle
+		<description><![CDATA[<p>
+Nombre: Plazoleta Juvencio Valle
 <br/>Tipo: Plazoleta
-<br/>Lugar: Villa Almagro</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1909,6 +2322,14 @@
 				<displayName>Lugar</displayName>
 				<value>Villa Almagro</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Juvencio Valle</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1925,10 +2346,11 @@
 	</Placemark>
 	<Placemark>
 		<name>47</name>
-		<description><![CDATA[<hr/>Nombre: Juegos Juvencio Valle
+		<description><![CDATA[<p>
+Nombre: Juegos Juvencio Valle
 <br/>Tipo: Juegos
-<br/>Lugar: Villa Almagro</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1950,6 +2372,14 @@
 				<displayName>Lugar</displayName>
 				<value>Villa Almagro</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Juvencio Valle</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -1966,10 +2396,11 @@
 	</Placemark>
 	<Placemark>
 		<name>48</name>
-		<description><![CDATA[<hr/>Nombre: Plazoleta Jaime Poch
+		<description><![CDATA[<p>
+Nombre: Plazoleta Jaime Poch
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -1991,6 +2422,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta Jaime Poch</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2007,10 +2446,11 @@
 	</Placemark>
 	<Placemark>
 		<name>49</name>
-		<description><![CDATA[<hr/>Nombre: Coilaco
+		<description><![CDATA[<p>
+Nombre: Coilaco
 <br/>Tipo: Zona Descanso
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2032,6 +2472,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Zona Descanso II Coilaco</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2048,10 +2496,11 @@
 	</Placemark>
 	<Placemark>
 		<name>50</name>
-		<description><![CDATA[<hr/>Nombre: Juegos Castellon
+		<description><![CDATA[<p>
+Nombre: Juegos Castellon
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2073,6 +2522,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Castellon</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2089,10 +2546,11 @@
 	</Placemark>
 	<Placemark>
 		<name>51</name>
-		<description><![CDATA[<hr/>Nombre: Michelle Bachelet
+		<description><![CDATA[<p>
+Nombre: Michelle Bachelet
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2114,6 +2572,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Michelle Bachelet</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2130,10 +2596,11 @@
 	</Placemark>
 	<Placemark>
 		<name>52</name>
-		<description><![CDATA[<hr/>Nombre: La Unión
+		<description><![CDATA[<p>
+Nombre: La Unión
 <br/>Tipo: Multicancha
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2155,6 +2622,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha La Unión</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2171,10 +2646,11 @@
 	</Placemark>
 	<Placemark>
 		<name>53</name>
-		<description><![CDATA[<hr/>Nombre: Rayen Mawida
+		<description><![CDATA[<p>
+Nombre: Rayen Mawida
 <br/>Tipo: Parque
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2196,6 +2672,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Parque Rayen Mawida</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2203,7 +2687,7 @@
 					<LinearRing>
 						<tessellate>1</tessellate>
 						<coordinates>
-							-72.94272845022496,-38.73135226718117,0 -72.9427284662074,-38.73161689508002,0 -72.94285474749168,-38.73161792611699,0 -72.94287718721522,-38.73163143331038,0 -72.9431618202448,-38.731632539225,0 -72.94365931459834,-38.73163447052691,0 -72.94484634938114,-38.73163389591354,0 -72.94486649870871,-38.73162113808281,0 -72.94499889848916,-38.73162108238481,0 -72.94502285968802,-38.73163461592495,0 -72.94545656440187,-38.73163508966157,0 -72.94548536197553,-38.73163917200289,0 -72.94553656566866,-38.73165795245013,0 -72.94558735972662,-38.7316910298745,0 -72.94565758616423,-38.73173636905648,0 -72.94571183208438,-38.73175520290839,0 -72.94619047200554,-38.73183394492457,0 -72.94625121191305,-38.73183858845695,0 -72.94716540187825,-38.73185345918368,0 -72.94720359890285,-38.73184817008266,0 -72.94723138729358,-38.73183435401285,0 -72.94737118181484,-38.73173548811255,0 -72.94740062762035,-38.73171693304553,0 -72.94743121927868,-38.73171151028416,0 -72.94747854254584,-38.73170638138742,0 -72.94803813405798,-38.73166852794341,0 -72.94802138767722,-38.73145605483959,0 -72.94788914509891,-38.73150379741502,0 -72.94776546247545,-38.73151831368433,0 -72.94764726377652,-38.73150074167145,0 -72.94750091551441,-38.73145645075862,0 -72.94739102469389,-38.73146763281343,0 -72.9472946527505,-38.73148501231481,0 -72.94714487950002,-38.73161350326299,0 -72.94707638391624,-38.73166713278283,0 -72.9469009167902,-38.73168312244033,0 -72.94678206981676,-38.73168818648333,0 -72.94630304006587,-38.7316761929873,0 -72.9462360113089,-38.73167859106095,0 -72.94603634368197,-38.73168938603548,0 -72.94580116062893,-38.73166498788936,0 -72.94539479699063,-38.73156009866654,0 -72.94525711383375,-38.73147900478219,0 -72.9451846156682,-38.73145984978517,0 -72.94507689441566,-38.73144841948926,0 -72.94458479222619,-38.73141473278946,0 -72.94427716505272,-38.73142243383671,0 -72.94400990500692,-38.73140223588306,0 -72.94381061383167,-38.73139992149683,0 -72.94343592402858,-38.73141120839134,0 -72.94315653250005,-38.73139843392588,0 -72.94305444926101,-38.7313937662625,0 -72.94285732874513,-38.73136884014615,0 -72.94272845022496,-38.73135226718117,0 
+							-72.94285732874513,-38.73136884014615,0 -72.94272845022496,-38.73135226718117,0 -72.9427284662074,-38.73161689508002,0 -72.94285474749168,-38.73161792611699,0 -72.94287718721522,-38.73163143331038,0 -72.9431618202448,-38.731632539225,0 -72.94365931459834,-38.73163447052691,0 -72.94484634938114,-38.73163389591354,0 -72.94486649870871,-38.73162113808281,0 -72.94499889848916,-38.73162108238481,0 -72.94502285968802,-38.73163461592495,0 -72.94545656440187,-38.73163508966157,0 -72.94548536197553,-38.73163917200289,0 -72.94553656566866,-38.73165795245013,0 -72.94558735972662,-38.7316910298745,0 -72.94565758616423,-38.73173636905648,0 -72.94571183208438,-38.73175520290839,0 -72.94619047200554,-38.73183394492457,0 -72.94625121191305,-38.73183858845695,0 -72.94716540187825,-38.73185345918368,0 -72.94720359890285,-38.73184817008266,0 -72.94723138729358,-38.73183435401285,0 -72.94737118181484,-38.73173548811255,0 -72.94740062762035,-38.73171693304553,0 -72.94743121927868,-38.73171151028416,0 -72.94747854254584,-38.73170638138742,0 -72.94803813405798,-38.73166852794341,0 -72.94802138767722,-38.73145605483959,0 -72.94788914509891,-38.73150379741502,0 -72.94776546247545,-38.73151831368433,0 -72.94764726377652,-38.73150074167145,0 -72.94750091551441,-38.73145645075862,0 -72.94739102469389,-38.73146763281343,0 -72.9472946527505,-38.73148501231481,0 -72.94714487950002,-38.73161350326299,0 -72.94707638391624,-38.73166713278283,0 -72.9469009167902,-38.73168312244033,0 -72.94678206981676,-38.73168818648333,0 -72.94630304006587,-38.7316761929873,0 -72.9462360113089,-38.73167859106095,0 -72.94603634368197,-38.73168938603548,0 -72.94580116062893,-38.73166498788936,0 -72.94539479699063,-38.73156009866654,0 -72.94525711383375,-38.73147900478219,0 -72.9451846156682,-38.73145984978517,0 -72.94507689441566,-38.73144841948926,0 -72.94458479222619,-38.73141473278946,0 -72.94427716505272,-38.73142243383671,0 -72.94400990500692,-38.73140223588306,0 -72.94381061383167,-38.73139992149683,0 -72.94343592402858,-38.73141120839134,0 -72.94321562829217,-38.73140113598632,0 -72.94320732314911,-38.7313978781999,0 -72.94320732314911,-38.73139787819991,0 -72.94320834275737,-38.73156006326711,0 -72.94286232330515,-38.7315606370745,0 -72.94286420283693,-38.73139628157916,0 -72.94306301272741,-38.73139720681182,0 -72.94293126056326,-38.73137818895054,0 -72.94285732874513,-38.73136884014615,0 
 						</coordinates>
 					</LinearRing>
 				</outerBoundaryIs>
@@ -2212,10 +2696,11 @@
 	</Placemark>
 	<Placemark>
 		<name>54</name>
-		<description><![CDATA[<hr/>Nombre: Plaza Huincul
+		<description><![CDATA[<p>
+Nombre: Plaza Huincul
 <br/>Tipo: Plaza
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2237,6 +2722,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>Multicancha</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plaza Huincul</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2253,10 +2746,11 @@
 	</Placemark>
 	<Placemark>
 		<name>55</name>
-		<description><![CDATA[<hr/>Nombre: Plazoleta Ibáñez del Campo
+		<description><![CDATA[<p>
+Nombre: Plazoleta Ibáñez del Campo
 <br/>Tipo: Plazoleta
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2278,6 +2772,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Plazoleta C. Ibáñez del Campo</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2294,10 +2796,11 @@
 	</Placemark>
 	<Placemark>
 		<name>56</name>
-		<description><![CDATA[<hr/>Nombre: Alberto Hurtado
+		<description><![CDATA[<p>
+Nombre: Alberto Hurtado
 <br/>Tipo: Juegos
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2319,6 +2822,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Juegos Alberto Hurtado</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2335,10 +2846,11 @@
 	</Placemark>
 	<Placemark>
 		<name>57</name>
-		<description><![CDATA[<hr/>Nombre: Eduardo Frei
+		<description><![CDATA[<p>
+Nombre: Eduardo Frei
 <br/>Tipo: S/Info
-<br/>Lugar: Nueva Imperial</p>]]></description>
-		<styleUrl>#style1</styleUrl>
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
 		<ExtendedData>
 			<Data name="Id">
 				<displayName>Id</displayName>
@@ -2360,6 +2872,14 @@
 				<displayName>Lugar</displayName>
 				<value>Nueva Imperial</value>
 			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>S/Info Eduardo Frei</value>
+			</Data>
 		</ExtendedData>
 		<MultiGeometry>
 			<Polygon>
@@ -2368,6 +2888,156 @@
 						<tessellate>1</tessellate>
 						<coordinates>
 							-72.94961218020981,-38.73334394066449,0 -72.94962868341432,-38.7325965970642,0 -72.94932463169108,-38.73258554022981,0 -72.94934434920987,-38.73291774380877,0 -72.94882585508971,-38.73291245856039,0 -72.94883765558347,-38.73309575950223,0 -72.94912489128326,-38.73309889359668,0 -72.9491326228884,-38.73333933991923,0 -72.94961218020981,-38.73334394066449,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</MultiGeometry>
+	</Placemark>
+	<Placemark>
+		<name>58</name>
+		<description><![CDATA[<p>
+Nombre: El Bosque
+<br/>Tipo: Multicancha
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
+		<ExtendedData>
+			<Data name="Id">
+				<displayName>Id</displayName>
+				<value>58</value>
+			</Data>
+			<Data name="Nombre">
+				<displayName>Nombre</displayName>
+				<value>El Bosque</value>
+			</Data>
+			<Data name="Tipo">
+				<displayName>Tipo</displayName>
+				<value>Multicancha</value>
+			</Data>
+			<Data name="Sup_m2">
+				<displayName>Sup_m2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="Lugar">
+				<displayName>Lugar</displayName>
+				<value>Nueva Imperial</value>
+			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha El Bosque</value>
+			</Data>
+		</ExtendedData>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-72.94579482790695,-38.73368929462472,0 -72.9454036964263,-38.73368019698312,0 -72.94539198188356,-38.73389103041421,0 -72.94580037752571,-38.73389154571609,0 -72.94579482790695,-38.73368929462472,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</MultiGeometry>
+	</Placemark>
+	<Placemark>
+		<name>60</name>
+		<description><![CDATA[<p>
+Nombre: Rayen Mawida
+<br/>Tipo: Multicancha
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
+		<ExtendedData>
+			<Data name="Id">
+				<displayName>Id</displayName>
+				<value>60</value>
+			</Data>
+			<Data name="Nombre">
+				<displayName>Nombre</displayName>
+				<value>Rayen Mawida</value>
+			</Data>
+			<Data name="Tipo">
+				<displayName>Tipo</displayName>
+				<value>Multicancha</value>
+			</Data>
+			<Data name="Sup_m2">
+				<displayName>Sup_m2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="Lugar">
+				<displayName>Lugar</displayName>
+				<value>Nueva Imperial</value>
+			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Rayen Mawida</value>
+			</Data>
+		</ExtendedData>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-72.94320732314911,-38.7313978781999,0 -72.94286420283696,-38.73139628157919,0 -72.94286232330512,-38.73156063707453,0 -72.9432083427574,-38.73156006326715,0 -72.94320732314911,-38.7313978781999,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</MultiGeometry>
+	</Placemark>
+	<Placemark>
+		<name>59</name>
+		<description><![CDATA[<p>
+Nombre: Presidente Lagos
+<br/>Tipo: Multicancha
+</p>]]></description>
+		<styleUrl>#style10</styleUrl>
+		<ExtendedData>
+			<Data name="Id">
+				<displayName>Id</displayName>
+				<value>59</value>
+			</Data>
+			<Data name="Nombre">
+				<displayName>Nombre</displayName>
+				<value>Presidente Lagos</value>
+			</Data>
+			<Data name="Tipo">
+				<displayName>Tipo</displayName>
+				<value>Multicancha</value>
+			</Data>
+			<Data name="Sup_m2">
+				<displayName>Sup_m2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="Lugar">
+				<displayName>Lugar</displayName>
+				<value>Nueva Imperial</value>
+			</Data>
+			<Data name="Tipo_2">
+				<displayName>Tipo_2</displayName>
+				<value>NULL</value>
+			</Data>
+			<Data name="CLASS">
+				<displayName>CLASS</displayName>
+				<value>Multicancha Presidente Lagos</value>
+			</Data>
+		</ExtendedData>
+		<MultiGeometry>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<tessellate>1</tessellate>
+						<coordinates>
+							-72.9455463023137,-38.7373636746478,0 -72.94535604632681,-38.73737143690258,0 -72.94535105327827,-38.73764458943753,0 -72.94555013288191,-38.73762587499765,0 -72.9455463023137,-38.7373636746478,0 
 						</coordinates>
 					</LinearRing>
 				</outerBoundaryIs>

@@ -129,8 +129,8 @@ th{
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Descargas</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown05">
-              <li><a class="dropdown-item" href="#"><i class="fa fa-download" aria-hidden="true"></i>  Mapa PDF</a></li>
-              <li><a class="dropdown-item" href="data/kml/areasverdes_imp.kml"><i class="fa fa-download" aria-hidden="true"></i>  Juntas de vecinos - KML</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa-regular fa-file-pdf" aria-hidden="true"></i>&nbsp Áreas Verdes <b>[PDF]</b></a></li>
+              <li><a class="dropdown-item" href="data/kml/areasverdes_imp.kml"><i class="fa fa-earth-americas" aria-hidden="true"></i>  Áreas verdes <b>[KML]</b></a></li>
             </ul>
           </li><li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Información territorial</a>
@@ -239,7 +239,7 @@ th{
       */ 
 
     // MAPA BASE
-  var map = L.map('map', {zoomControl: false, minZoom: 14, maxZoom: 17, zoomSnap: 0.5}).setView([-38.7421229, -72.9458827], 14.5);
+  var map = L.map('map', {zoomControl: false, minZoom: 14, maxZoom: 18, zoomSnap: 0.5}).setView([-38.7421229, -72.9458827], 14.5);
     
   var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -249,7 +249,7 @@ th{
         minNativeZoom: 0,
         maxNativeZoom: 18,
         zIndex: 400,
-    });
+    }).addTo(map);
     
   var ESRIsat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         attribution: '©<a href="http://www.esri.com/"> Esri</a>',
@@ -269,7 +269,7 @@ th{
         minNativeZoom: 0,
         maxNativeZoom: 18,
         zIndex: 401,
-    }).addTo(map);
+    });
     
   var openTopo = L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
         attribution: 'TopOSM was created by User: Ahlzen, with contributions from several others, including Ian Dees, Nick Thompson and Phil Gold.',
@@ -344,20 +344,34 @@ th{
     }
     
     //3 ESTILOS
-    //Función de estilo para PRC
- 
-    
-    //Función de estilo para AV
+    //Función de estilo para PRC    
+    //Función de estilo para AV (Resumir getColor)
+
+    function getColor(d) {              
+    return d == "Estadio" ? '#33a02c' :
+           d == "Complejo Deportivo" ? '#33a02c' :
+           d == "Cancha" ? '#33a02c':
+           d == "Plaza" ? '#6cff1d':
+           d == "Parque" ? '#6cff1d':
+           d == "Juegos" ? '#96c957':
+           d == "Plazoleta" ? '#96c957':
+           d == "Multicancha" ? '#2889f8':
+           d == "Zona Descanso" ? '#8ad4e8':
+           d == "Bandejón" ? '#8ad4e8':
+                      '#8ad4e8';
+}
+
+
     function styleAV(feature) {
       return{
         opacity: 1,
-        color: 'rgb(34, 255, 0)',
+        color: getColor(feature.properties.Tipo),                       /*'rgb(34, 255, 0)',*/
         /*dashArray: '2', //(Línea punteada, mayor valor menos segmentos)*/
         lineCap: 'square',  
         lineJoin: 'round',  //(Uniones, redondeadas o rectas)
         weight: 0.5,
         fill: true,
-        fillOpacity: 0.4,
+        fillOpacity: 0.6,
         interactive: true,
       }
     }
@@ -437,7 +451,7 @@ th{
     var locTM = {
       "CAPAS DE INFORMACIÓN": {
       
-        '<img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray" src="legend/jvImpe.png" /> Áreas Verdes': areavImpe,
+        ' Áreas Verdes<br><img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray"; src="legend/juegos_.png" /> <i>Plazoletas - Juegos</i><br><img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray"; src="legend/estadios_.png" /> <i>Estadio - Canchas</i> <br><img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray"; src="legend/plaza_.png" /> <i>Plazas - Parques</i><br><img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray"; src="legend/multicancha_.png" /> <i>Multicanchas</i><br><img style="margin-bottom:5px; margin-right:4px; box-shadow:2px 2px 2px gray"; src="legend/bandejon_.png" /> <i>Otras</i><br>': areavImpe,
         /*'<i class="fa fa-tags fa-lg"  aria-hidden="true" style="margin: 0 1px 0 2px"></i> Etiquetar comunidades': labTM,
         '<i class="fa fa-tags fa-lg" aria-hidden="true" style="margin: 0 1px 0 2px"></i>  Etiquetar localidades': labImpe*/
      }
@@ -469,7 +483,7 @@ th{
     
     var searchControl = new L.Control.Search({
             layer: searchLayers, 
-            propertyName: 'Nombre',
+            propertyName: 'CLASS',
         initial: false,
             marker: false,
         buildTip: function(text, val) {
@@ -477,7 +491,7 @@ th{
                 return '<a href="#" class="'+type+'">'+text+'<b>'+type+'</b></a>';
             },
         zoom: 17,
-        textPlaceholder: 'Buscar junta de vecinos',
+        textPlaceholder: 'Buscar área verde',
         textCancel: 'Cancelar',
         textErr: 'No encontrado',
         marker: {
